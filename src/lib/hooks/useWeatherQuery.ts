@@ -3,6 +3,8 @@ import type { UseQueryResult } from '@tanstack/react-query'
 import { useQuery } from '@tanstack/react-query'
 import type { WeatherDataResponse, WeatherQueryProps } from './types'
 
+// TODO: WRITE TESTS
+
 const retrieveWeatherData = async ({ city }: WeatherQueryProps) => {
   const apiKey = import.meta.env.VITE_API_KEY as string
   const response = await axios.get<WeatherDataResponse>(
