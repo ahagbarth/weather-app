@@ -7,6 +7,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react-hooks/recommended',
+    'prettier',
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
@@ -20,17 +21,25 @@ module.exports = {
   },
   settings: {
     'import/parsers': {
-      '@typescript-eslint/parser': [".js", ".jsx",  '.ts', '.tsx'],
+      '@typescript-eslint/parser': ['.js', '.jsx', '.ts', '.tsx'],
     },
     'import/resolver': {
       node: {
-        extensions: [".js", ".jsx",  '.ts', '.tsx'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
         caseSensitive: false,
         moduleDirectory: ['src', 'node_modules'],
       },
     },
   },
-  plugins: ["eslint-plugin-import", 'fp', 'functional', 'prefer-arrow', 'react', '@typescript-eslint','react-refresh'],
+  plugins: [
+    'eslint-plugin-import',
+    'fp',
+    'functional',
+    'prefer-arrow',
+    'react',
+    '@typescript-eslint',
+    'react-refresh',
+  ],
   // 0: off, 1: warn, 2: error
   rules: {
     'react-refresh/only-export-components': [
@@ -86,5 +95,7 @@ module.exports = {
     'import/extensions': 0,
     '@typescript-eslint/consistent-type-imports': 2,
     '@typescript-eslint/no-explicit-any': 2,
+    semi: [2, 'never'],
+    'jsx-quotes': [2, 'prefer-single'],
   },
 }

@@ -1,9 +1,9 @@
 {
-    "jsxSingleQuote": true,
-    "semi": false,
-    "singleQuote": true,
-    "tabWidth": 2,
-    "trailingComma": "es5",
-    "importOrder": ["^react$", "<THIRD_PARTY_MODULES>", "^[@/*]", "^[./]"],
-    "plugins": ["@trivago/prettier-plugin-sort-imports"]
- }
+  "jsxSingleQuote": true,
+  "semi": false,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "importOrder": ["^react$", "<THIRD_PARTY_MODULES>", "^[@/*]", "^[./]"],
+  "plugins": ["@trivago/prettier-plugin-sort-imports"]
+}
