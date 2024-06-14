@@ -6,7 +6,10 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "allowJs": true,
-    "baseUrl": "./src",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    },
     "types": ["vitest/globals"],
 
     /* Bundler mode */

@@ -1,25 +1,29 @@
 import axios from 'axios'
-import type { UseQueryResult } from '@tanstack/react-query'
 import { useQuery } from '@tanstack/react-query'
-import type { WeatherDataResponse, WeatherQueryProps } from './types'
+import type {
+  WeatherDataBody,
+  WeatherQueryProps,
+  WeatherQueryResponse,
+} from './types'
 
-// TODO: WRITE TESTS
-
-const retrieveWeatherData = async ({ city }: WeatherQueryProps) => {
+export const retrieveWeatherData = async ({ city }: WeatherQueryProps) => {
   const apiKey = import.meta.env.VITE_API_KEY as string
-  const response = await axios.get<WeatherDataResponse>(
-    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}
+  const response = await axios.get<WeatherDataBody>(
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric
 `
   )
   return response.data
 }
 
-const useWeatherQuery = ({
-  city,
-}: WeatherQueryProps): UseQueryResult<WeatherDataResponse> =>
-  useQuery({
-    queryKey: ['users'],
+const useWeatherQuery = ({ city }: WeatherQueryProps): WeatherQueryResponse => {
+  const { data, error } = useQuery({
+    queryKey: ['weather', city],
     queryFn: () => retrieveWeatherData({ city }),
+    enabled: !!city,
+    retry: false,
   })
+
+  return { data, error }
+}
 
 export default useWeatherQuery
