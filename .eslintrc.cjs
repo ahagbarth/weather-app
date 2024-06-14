@@ -95,6 +95,7 @@ module.exports = {
     'import/extensions': 0,
     '@typescript-eslint/consistent-type-imports': 2,
     '@typescript-eslint/no-explicit-any': 2,
+    'react/react-in-jsx-scope': 'off',
     semi: [2, 'never'],
     'jsx-quotes': [2, 'prefer-single'],
   },

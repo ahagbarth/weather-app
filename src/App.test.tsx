@@ -1,10 +1,9 @@
-import React from 'react'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import '@testing-library/jest-dom'
 import { fireEvent, render, screen } from '@testing-library/react'
 import App from './App'
-import type { ThemeContextValue } from './lib/context/ThemeContext'
 import ThemeContext from './lib/context/ThemeContext'
+import type { ThemeContextValue } from './lib/context/types'
 import useWeatherCondition from './lib/hooks/useWeatherCondition'
 import useWeatherQuery from './lib/hooks/useWeatherQuery'
 
@@ -12,12 +11,15 @@ import useWeatherQuery from './lib/hooks/useWeatherQuery'
 vi.mock('./lib/hooks/useWeatherQuery')
 vi.mock('./lib/hooks/useWeatherCondition')
 
-const mockUseWeatherQuery = useWeatherQuery as jest.MockedFunction<
+// @ts-expect-error not detecting vi
+const mockUseWeatherQuery = useWeatherQuery as vi.MockedFunction<
   typeof useWeatherQuery
 >
-const mockUseWeatherCondition = useWeatherCondition as jest.MockedFunction<
+// @ts-expect-error not detecting vi
+const mockUseWeatherCondition = useWeatherCondition as vi.MockedFunction<
   typeof useWeatherCondition
 >
+
 const mockThemeContextValue: ThemeContextValue = {
   currentTheme: 'light',
   changeCurrentTheme: vi.fn(),

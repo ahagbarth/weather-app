@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 import type { FC, ReactNode } from 'react'
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import type { MainData, WeatherData } from '../hooks/types'
 import ThemeContext from './ThemeContext'
 

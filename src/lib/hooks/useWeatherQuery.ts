@@ -1,3 +1,4 @@
+import type { AxiosError } from 'axios'
 import axios from 'axios'
 import { useQuery } from '@tanstack/react-query'
 import type {
@@ -16,7 +17,7 @@ export const retrieveWeatherData = async ({ city }: WeatherQueryProps) => {
 }
 
 const useWeatherQuery = ({ city }: WeatherQueryProps): WeatherQueryResponse => {
-  const { data, error } = useQuery({
+  const { data, error } = useQuery<WeatherDataBody, AxiosError>({
     queryKey: ['weather', city],
     queryFn: () => retrieveWeatherData({ city }),
     enabled: !!city,

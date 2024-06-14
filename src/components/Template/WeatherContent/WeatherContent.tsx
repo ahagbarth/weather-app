@@ -1,4 +1,3 @@
-import React from 'react'
 import Header from '../../molecules/Header'
 import Panel from '../../organism/Panel'
 

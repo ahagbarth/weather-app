@@ -1,4 +1,4 @@
-import type { DefaultError } from '@tanstack/react-query'
+import type { AxiosError } from 'axios'
 
 export type WeatherQueryProps = {
   city: string
@@ -31,5 +31,5 @@ export type WeatherDataBody = {
 
 export type WeatherQueryResponse = {
   data: WeatherDataBody | undefined
-  error: DefaultError | null
+  error: AxiosError | null | undefined
 }
